@@ -9,3 +9,10 @@ app.use(express.json());
 // Logic goes here
 
 module.exports = app;
+
+
+const auth = require("./middleware/auth");
+
+app.post("/welcome", auth, (req, res) => {
+  res.status(200).send("Welcome 🙌 ");
+});
